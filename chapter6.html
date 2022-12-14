@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="utilities.js"></script>
+    <script>
+        function initialize(){
+            diceTable = document.getElementById("dicetable");
+            rollDice();
+        }
+
+        function rollDice(){
+            var numRolls = getRandomInteger(25, 100);
+
+            for (var i = 0; i < numRolls; i++){
+                var dieRoll = getRandomInteger(1, 6);
+
+                var newRow = diceTable.insertRow();
+                var newCell = newRow.insertCell();
+                newCell.innerHTML = "Roll " + (i + 1);
+
+                newCell = newRow.insertCell();
+                newCell.innerHTML = dieRoll;
+
+                //Roll dice
+                //Add a row to the table
+                //Put the roll number from i in the fist cell
+                //Put the roll itself into the second cell.
+            }
+        }
+    </script>
+    <style>
+        table{
+            border: thick solid gray;
+            border-collapse: collapse;
+            width: 25%;
+        }
+
+        th, td{
+            border: thin solid black;
+            padding: 8px;
+            width: 50%;
+        }
+    </style>
+</head>
+<body onload="initialize()">
+    <table id = "dicetable">
+        <tr>
+            <th>Roll</th>
+            <th>Result</th>
+        </tr>
+    </table>
+</body>
+</html>
